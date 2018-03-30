@@ -1,0 +1,21 @@
+.btn-list {
+  background-color: #FF8338;
+  color: white;
+  font-weight: bold;
+  opacity: 0.8;
+  &:hover {
+    color: white;
+    opacity: 1.0;
+  }
+}
+
+.btn-add {
+  background-color: #EA556B;
+  color: white;
+  font-weight: bold;
+  opacity: 0.8;
+  &:hover {
+    color: white;
+    opacity: 1.0;
+  }
+}
