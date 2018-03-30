@@ -12,11 +12,11 @@
   <div class="row">
     <% @cocktails.each do |cocktail| %>
       <div class="col-xs-12 col-sm-4">
-        <div class="card" style="background-image: linear-gradient(rgba(0,0,0,0.3), rgba(0,0,0,0.2)), url('https://source.unsplash.com/random/800x60<%= rand(1..99) %>');">
+        <div class="card" style="background-image: linear-gradient(rgba(0,0,0,0.3), rgba(0,0,0,0.2)), url('<%= cocktail.photo.nil? ? "http://www.wellesleysocietyofartists.org/wp-content/uploads/2015/11/image-not-found.jpg" : cl_image_path(cocktail.photo, height: 300, width: 400, crop: :fill) %>');">
           <div class="card-category"><%= cocktail.name.capitalize %></div>
           <div class="card-description">
-            <h2>leasdasdad</h2>
-            <p>Asdasd</p>
+            <h2><%#= cocktail.ingredients %></h2>
+            <!-- <p>Asdasd</p> -->
           </div>
           <%= link_to "", cocktail_path(cocktail), class: "card-link" %>
         </div>
