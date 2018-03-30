@@ -1,14 +1,14 @@
 <div class="navbar-wagon navbar-fixed-top">
   <!-- Logo -->
-  <%= link_to '<i class="fa fa-glass fa-2x"></i> Cocktail'.html_safe, root_path %>
-
+  <%= link_to root_path do %>
+    <%= image_tag "Negroni-icon.png", class: "logo" %>
+  <% end %>
   <!-- Right Navigation -->
   <div class="navbar-wagon-right hidden-xs hidden-sm">
 
     <!-- Links -->
-    <%= link_to "Host", "#", class: "navbar-wagon-item navbar-wagon-link" %>
-    <%= link_to "Trips", "#", class: "navbar-wagon-item navbar-wagon-link" %>
-    <%= link_to "Messages", "#", class: "navbar-wagon-item navbar-wagon-link" %>
+    <%= link_to "All cocktails", root_path, class: "navbar-wagon-item navbar-wagon-link btn btn-primary btn-small" %>
+    <%= link_to "Add a cocktail", new_cocktail_path, class: "navbar-wagon-item navbar-wagon-link btn btn-success btn-small" %>
 
     <!-- Avatar with dropdown menu -->
     <div class="navbar-wagon-item">
