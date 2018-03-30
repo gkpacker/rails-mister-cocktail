@@ -1,38 +1,43 @@
-<div class="container full-height" style="margin-top: 70px;">
-  <h1><%= @cocktail.name %></h1>
-
-  <% @cocktail.doses.each do |dose| %>
-    <div class="dose">
-      <div class="dose-description">
-        <%= dose.description %>
-      </div>
-      <div class="dose-ingredients">
-        <%= dose.ingredient.name %>
-      </div>
-
-      <%= link_to '<i class="fa fa-trash" aria-hidden="true"></i>'.html_safe, dose_path(dose.id), method: :delete, class: "btn btn-danger", id: "sweet-alert-demo" %>
-      <br><br>
-
+<div class="wrapper">
+  <div class="container full-height text-center page-content">
+    <div class="text-center">
+      <h1><%= @cocktail.name %></h1>
     </div>
-  <% end %>
-
-  <%= link_to "new cocktail dose", new_cocktail_dose_path(@cocktail), class: "btn btn-primary" %>
-  <%= link_to "back to cocktail list", root_path, class: "btn btn-primary" %>
     <div class="row">
-      <div class="col-md-4 col-md-offset-4">
-        <div class="form-container">
-          <%= simple_form_for [@cocktail, @dose] do |f| %>
-            <div class="form-description">
-              <%= f.input :description %>
+      <% @cocktail.doses.each do |dose| %>
+        <div class="col-md-8 col-md-offset-8">
+          <div class="dose">
+            <div class="dose-description">
+              <%= dose.description %>
             </div>
-            <div class="form-select">
-              <%= select_tag "ingredient", options_from_collection_for_select(Ingredient.all, :name, :name), class: 'select2' %>
+            <div class="dose-ingredients">
+              <%= dose.ingredient.name %>
             </div>
 
-            <%= f.submit class: "btn btn-primary btn-form btn-block" %>
+            <%= link_to '<i class="fa fa-trash" aria-hidden="true"></i>'.html_safe, dose_path(dose.id), method: :delete, class: "btn btn-danger", id: "sweet-alert-demo" %>
+            <br><br>
+          </div>
+        </div>
+      <% end %>
+    </div>
 
-          <% end %>
+    <%= link_to "Back to home page", root_path, class: "btn btn-pink" %>
+      <div class="row">
+        <div class="col-md-8 col-md-offset-2">
+          <div class="form-container">
+            <%= simple_form_for [@cocktail, @dose] do |f| %>
+              <div class="form-description">
+                <%= f.input :description %>
+              </div>
+              <div class="form-select">
+                <%= select_tag "ingredient", options_from_collection_for_select(Ingredient.all, :name, :name), class: 'select2' %>
+              </div>
+
+              <%= f.submit class: "btn btn-pink btn-form btn-block" %>
+
+            <% end %>
+          </div>
         </div>
       </div>
-    </div>
+  </div>
 </div>
