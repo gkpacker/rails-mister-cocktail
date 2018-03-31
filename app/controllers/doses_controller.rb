@@ -10,9 +10,11 @@ class DosesController < ApplicationController
     @dose.cocktail = @cocktail
     @dose.ingredient_id = Ingredient.find_by(name: params[:ingredient]).id
     if @dose.save
+      flash[:success] = "Dose added!"
       redirect_to cocktail_path(@cocktail)
     else
-      render :new
+      redirect_to cocktail_path(@cocktail)
+      flash[:danger] = "#{@dose.errors.messages[:ingredient].first}"
     end
   end
 

@@ -1,5 +1,5 @@
 <div class="wrapper">
-  <div class="container full-height text-center page-content">
+  <div class="container text-center page-content">
     <div class="text-center">
       <h1><%= @cocktail.name %></h1>
     </div>
@@ -7,17 +7,22 @@
       <div class="row">
         <div class="col-md-8 col-md-offset-2">
           <div class="dose">
-            <div class="dose-description">
-              <%= dose.description %>
+            <div class="dose-content">
+              <div class="row">
+                <div class="col-md-4">
+                  <div class="dose-ingredients">
+                    <%= dose.ingredient.name %>
+                  </div>
+                </div>
+                <div class="col-md-8">
+                  <div class="dose-description">
+                    <%= dose.description %>
+                  </div>
+                </div>
+              </div>
             </div>
-            <div class="dose-ingredients">
-              <%= dose.ingredient.name %>
-            </div>
-
             <a href="#" id="btn-delete"
            data-url="<%= dose_path(dose.id) %>" class="btn btn-danger"><i class="fa fa-trash" aria-hidden="true"></i></a>
-
-            <%#= link_to '<i class="fa fa-trash" aria-hidden="true"></i>'.html_safe, dose_path(dose.id), method: :delete, class: "btn btn-danger", id: "btn-delete" %>
 
           </div>
         </div>
@@ -25,8 +30,13 @@
     <% end %>
 
     <%= link_to "Back to home page", root_path, class: "btn btn-pink" %>
+
       <div class="row">
         <div class="col-md-8 col-md-offset-2">
+          <% flash.each do |key, value| %>
+            <div class="alert alert-<%= key %>"><%= value %></div>
+          <% end %>
+
           <div class="form-container">
             <%= simple_form_for [@cocktail, @dose] do |f| %>
               <div class="form-description">

@@ -2,6 +2,14 @@
   background-color: #ccc;
   border-radius: 5px;
   margin: 10px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 10px 25px;
+}
+.dose-content {
+  display: flex;
+  align-items: center;
 }
 
 .wrapper {
@@ -9,4 +17,5 @@
 }
 .page-content {
   padding-top: 70px;
+  min-height: 85vh;
 }

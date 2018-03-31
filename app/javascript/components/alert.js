@@ -14,18 +14,13 @@ function bindDeleteButton() {
     .then((willDelete) => {
       if (willDelete) {
         const btn = document.querySelector('#btn-delete');
-        const url = btn
+        // const url = btn
         swal("Poof! Your dose has been deleted!", {
           icon: "success",
         });
-        // window.location = btn
         $.ajax({
           type: "DELETE",
           url: btn.dataset["url"],
-          // data: btn.dataset["url"],
-          // success: function() {
-          //   btn.trigger("click")
-          // }
         });
       } else {
         swal("Your dose is safe!");
@@ -33,14 +28,6 @@ function bindDeleteButton() {
     });
   });
 }
-
- // function(isConfirm){
- //        if (isConfirm) form.submit();
- //    });
-
-
-
-// domLoadAlert = document.addEventListener("DOMContentLoad", bindSweetAlertButtonDemo())
 
 export { bindDeleteButton };
 
