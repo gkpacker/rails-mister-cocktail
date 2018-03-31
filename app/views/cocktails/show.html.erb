@@ -3,9 +3,9 @@
     <div class="text-center">
       <h1><%= @cocktail.name %></h1>
     </div>
-    <div class="row">
-      <% @cocktail.doses.each do |dose| %>
-        <div class="col-md-8 col-md-offset-8">
+    <% @cocktail.doses.each do |dose| %>
+      <div class="row">
+        <div class="col-md-8 col-md-offset-2">
           <div class="dose">
             <div class="dose-description">
               <%= dose.description %>
@@ -14,12 +14,15 @@
               <%= dose.ingredient.name %>
             </div>
 
-            <%= link_to '<i class="fa fa-trash" aria-hidden="true"></i>'.html_safe, dose_path(dose.id), method: :delete, class: "btn btn-danger", id: "sweet-alert-demo" %>
-            <br><br>
+            <a href="#" id="btn-delete"
+           data-url="<%= dose_path(dose.id) %>" class="btn btn-danger"><i class="fa fa-trash" aria-hidden="true"></i></a>
+
+            <%#= link_to '<i class="fa fa-trash" aria-hidden="true"></i>'.html_safe, dose_path(dose.id), method: :delete, class: "btn btn-danger", id: "btn-delete" %>
+
           </div>
         </div>
-      <% end %>
-    </div>
+      </div>
+    <% end %>
 
     <%= link_to "Back to home page", root_path, class: "btn btn-pink" %>
       <div class="row">

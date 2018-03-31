@@ -1,5 +1,6 @@
 class DosesController < ApplicationController
   before_action :set_cocktail, except: [:destroy]
+  skip_before_action :verify_authenticity_token, only: [:destroy]
   def new
     @dose = Dose.new
   end

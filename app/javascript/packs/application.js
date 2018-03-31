@@ -9,9 +9,9 @@
 import 'bootstrap';
 import { initUpdateNavbarOnScroll } from '../components/navbar';
 import { loadDynamicBannerText } from '../components/banner';
-// import { domLoadAlert } from '../components/alert';
+import { bindDeleteButton } from '../components/alert';
 import '../components/select2';
 
 initUpdateNavbarOnScroll();
 loadDynamicBannerText();
-// domLoadAlert();
+bindDeleteButton();

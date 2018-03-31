@@ -9,7 +9,6 @@
   align-items: center;
   justify-content: space-between;
   background-color: transparent;
-  transition: 0.3s background-color ease;
 }
 
 /* Logo */
@@ -34,7 +33,6 @@
 /* Basic navbar item */
 .navbar-wagon-item {
   cursor: pointer;
-  padding: 0 20px;
 }
 
 /* Navbar link */
@@ -80,4 +78,5 @@
 }
 .navbar-wagon-white {
   background-color: white;
+  transition: 0.3s background-color ease;
 }
